@@ -18,7 +18,7 @@ This script involves implementing and solving for inverse kinematics using geome
 `theta1,theta2,theta3` are the positions (slope angle) of link 1, 2 and 3 respectively.
 The geometric method for calculating these slopes was first solved on paper, and then implemented in the following lines.
 
-```
+```Matlab
 x2=posX - (linkLength3*cos(phi));
 y2=posY - (linkLength3*sin(phi));
 r2=x2*x2 + y2*y2;
@@ -41,7 +41,7 @@ The remainder of the script is entirely to plot the animation for the arm.
 The `transform` method is implemented using Denavit-Hartenberg parameters.
 This provides the forward kinematics for the 3R planar arm to plot every intermediate pose of the arm which in turn generates a smooth animation.
 
-## newtonRaphsonMethod
+## newtonRaphsonMethod.m
 
 This script makes use of an optimization method, namel **Newton Raphson** method, to arrive at the solution for the inverse kinematics of the arm. Newton Raphson is a form of gradient descent method and is less efficient in comparison to the geometrical method since the solution is arrived at over multiple iterations.
 
@@ -51,7 +51,7 @@ Additionally, initial pose can now be changed by altering the angles mentioned i
 
 The proposed method first requires you to know the forward kinematics of the arm to determine it's pose which is specified here:
 
-```
+```Matlab
 Xcurrent=linkLength1*cos(theta1)+linkLength2*cos(theta1+theta2)+linkLength3*cos(theta1+theta2+theta3);
 Ycurrent=linkLength1*sin(theta1)+linkLength2*sin(theta1+theta2)+linkLength3*sin(theta1+theta2+theta3);
 
@@ -61,7 +61,7 @@ A Jacobian matrix is solved for using this formula
 
 and continuous iterations are performed using the following optimization
 
-```
+```Matlab
 deltaq=pinv(jacobianMatrix)*error;
 
 theta1=theta1+deltaq(1);
