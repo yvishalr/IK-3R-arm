@@ -5,6 +5,9 @@ These are a series of scripts which were modified to perform various methods to 
 
 The simulation displays a primitive animation of the arm from the initial pose to the final desired pose.
 
+![Plot Animation](/resources/animation1.gif)
+![Plot Animation](/resources/animation2.gif)
+
 Let's break down each script individually.
 
 ## geometricMethod.m
@@ -57,12 +60,14 @@ Ycurrent=linkLength1*sin(theta1)+linkLength2*sin(theta1+theta2)+linkLength3*sin(
 
 ```
 
-A Jacobian matrix is solved for using this formula
+A Jacobian matrix is solved for using the following formula:-
+
+![formula](/resources/jacobian.jpg)
 
 and continuous iterations are performed using the following optimization
 
 ```Matlab
-deltaq=pinv(jacobianMatrix)*error;
+deltaq=pinv(jacobianMatrix)*error; % pseudo inverse of the jacobian
 
 theta1=theta1+deltaq(1);
 theta2=theta2+deltaq(2);
