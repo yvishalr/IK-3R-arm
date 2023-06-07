@@ -1,4 +1,4 @@
-# IK-3-DOF-arm
+# Forward and Inverse Kinematics of a 3-DOF Robotic Arm
 
 Matlab project to estimate and visualize the Inverse Kinematics for an 3R (planar) Robotic Arm.
 These are a series of scripts which were modified to perform various methods to achieve the same goal.
